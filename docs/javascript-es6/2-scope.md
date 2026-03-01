@@ -87,15 +87,15 @@ why we need Block Scope ? basically Block Scope helps us to prevent any unintend
 // name can not be used here 
 ```
 
-**Variables declared with the ```var ``` keyword can NOT have block scope.**  
-**Variables decalred with the ```var ``` keyword inside a block {} can be accessed from outside the block.**
+**Variables declared with the ```var``` keyword can NOT have block scope.**  
+**Variables decalred with the ```var``` keyword inside a block {} can be accessed from outside the block.**
 
 
 ## 🤔 Example of var Block Scope (never do this)
 
 ```js
     {
-        name = "my name is lakhan"
+      var  name = "my name is lakhan"
     }
 
     // name variable can be use here 
@@ -105,7 +105,7 @@ why we need Block Scope ? basically Block Scope helps us to prevent any unintend
 
 # Automatically Global
 
-> If you asign a value to a variable that has not beed declared , it will become Global variable.  
+**If you asign a value to a variable that has not beed declared , it will become Global variable.**    
 
 ## Example 
 
@@ -126,8 +126,8 @@ in "Strict Mode", undeclared variables are not automatically global.
 
 # Global Variables with HTML
 
-with javaScript the global scope is the javascript environment.  
-in HTML, the global scope is the window object.
+- With javaScript the global scope is the javascript environment.  
+- in HTML, the global scope is the window object.  
 
 Global variables define with the ```var``` keyword belong to the window object:
 
