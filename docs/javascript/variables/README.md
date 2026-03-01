@@ -90,7 +90,7 @@ var a = 20; // ✅ allowed
 
 ## 📌 Block Scope
 
->> Block scope in JavaScript refers to the concept where a variable declared within a specific code block (defined by curly braces {}) is only accessible within that block. Variables with block scope cannot be accessed from outside the block in which they were defined
+> Block scope in JavaScript refers to the concept where a variable declared within a specific code block (defined by curly braces {}) is only accessible within that block. Variables with block scope cannot be accessed from outside the block in which they were defined  
 
 ```js
 if (true) {
