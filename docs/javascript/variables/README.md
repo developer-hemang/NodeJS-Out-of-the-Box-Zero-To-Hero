@@ -27,11 +27,11 @@ const
 ``` 
 Each behaves differently.
 
-🔶 var — Function Scoped (Legacy)
+# 🔶 var — Function Scoped (Legacy)
 
 ⚠️ Avoid in modern JavaScript
 
-# ✅ Key Characteristics
+## ✅ Key Characteristics
 
 - Function scoped  
 - Hoisted and initialized with undefined  
@@ -39,7 +39,7 @@ Each behaves differently.
 - Can be reassigned  
 - Not block scoped  
 
-# 📌 Example — No Block Scope
+## 📌 Example — No Block Scope
 
 ```js
 function test() {
@@ -55,7 +55,7 @@ function test() {
 ``` 
 
 
-# 🔼 Hoisting with var
+## 🔼 Hoisting with var
 
 ```js
 console.log(a); // undefined
@@ -70,7 +70,7 @@ console.log(a);
 a = 5;
 ``` 
 
-# ❌ Re-declaration Allowed
+## ❌ Re-declaration Allowed
 
 ```js
 var a = 10;
