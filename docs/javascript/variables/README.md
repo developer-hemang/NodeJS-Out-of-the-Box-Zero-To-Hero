@@ -54,3 +54,19 @@ function test() {
 
   console.log(x); // 20 ❗ same variable
 }
+
+🔼 Hoisting with var
+
+console.log(a); // undefined
+var a = 5;
+
+Internally:
+
+var a;
+console.log(a);
+a = 5;
+
+## ❌ Re-declaration Allowed
+
+var a = 10;
+var a = 20; // ✅ allowed
