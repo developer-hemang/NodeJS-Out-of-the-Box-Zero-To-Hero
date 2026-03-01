@@ -76,3 +76,35 @@ a = 5;
 var a = 10;
 var a = 20; // ✅ allowed
 ```
+
+# 🟩 let — Block Scoped & Reassignable
+
+**Introduced in ES6.**
+
+## ✅ Key Characteristics
+
+- Block scoped  
+- Cannot be accessed before declaration  
+- Can be reassigned  
+- Cannot be re-declared in same scope  
+
+## 📌 Block Scope
+
+>> Block scope in JavaScript refers to the concept where a variable declared within a specific code block (defined by curly braces {}) is only accessible within that block. Variables with block scope cannot be accessed from outside the block in which they were defined
+
+```js
+if (true) {
+  let x = 10;
+}
+
+console.log(x); // ❌ ReferenceError
+```
+
+## ⛔ Temporal Dead Zone (TDZ)
+
+```js
+
+console.log(a); // ❌ ReferenceError
+let a = 5;
+
+```
