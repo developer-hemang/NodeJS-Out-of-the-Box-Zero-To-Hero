@@ -102,10 +102,10 @@ console.log(x); // ❌ ReferenceError
 
 ## ⛔ Temporal Dead Zone (TDZ)
 
-> Temporal Dead Zone is a time between **when variable is declared and when it is initialized during this time you cannot use use the variable event though it exists in memory  **  
-> TDZ is the period where a let or const variable is in scope but not yet usable.
-> If you try to access it → ❌ ReferenceError
-> ⏱️ Why the name “Temporal”?
+> Temporal Dead Zone is a time between **when variable is declared and when it is initialized during this time you cannot use use the variable event though it exists in memory  **    
+> TDZ is the period where a let or const variable is in scope but not yet usable.  
+> If you try to access it → ❌ ReferenceError  
+> ### ⏱️ Why the name “Temporal”?  
 >Because it’s about time (execution order), not position in the file.  
 
 ```js
