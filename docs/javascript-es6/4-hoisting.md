@@ -244,6 +244,6 @@ Because it helps you:
 
 🏁 Final One-Line Definition (Interview Ready)
 
-> # Hoisting is JavaScript’s default behavior where variable and function declarations are moved to the top of their scope during the memory creation phase, before code execution.
+> ## Hoisting is JavaScript’s default behavior where variable and function declarations are moved to the top of their scope during the memory creation phase, before code execution.
 
 
