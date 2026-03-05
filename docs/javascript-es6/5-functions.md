@@ -363,4 +363,20 @@ Express middleware is just functions.
 | Best for   | General logic        | Assignments         | Callbacks      |
 
 
+# 🏆 Real Backend Example (Production Style)
 
+```js
+
+const createUser = (name) => {
+  return {
+    name,
+    greet() {
+      console.log(`Hello ${this.name}`);
+    }
+  };
+};
+
+const user = createUser("Hemang");
+user.greet();
+
+```
