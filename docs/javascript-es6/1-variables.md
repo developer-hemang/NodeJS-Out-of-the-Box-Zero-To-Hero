@@ -358,7 +358,7 @@ Output:
 ```
 Reason:
 
-*** ```const``` protects the reference, not the internal data.***
+***```const``` protects the reference, not the internal data.***
 
 # ⚖️ ```var``` vs ```let``` vs ```const```
 
