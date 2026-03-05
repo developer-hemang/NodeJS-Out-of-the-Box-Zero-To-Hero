@@ -417,9 +417,9 @@ should not be reassigned.
 
 # 🏁 Key Takeaways
 
-✔ Block scoped
-✔ Must be initialized
-✔ Cannot be reassigned
-✔ Objects/arrays can still be modified
-✔ Exists in Temporal Dead Zone
+✔ Block scoped  
+✔ Must be initialized  
+✔ Cannot be reassigned  
+✔ Objects/arrays can still be modified  
+✔ Exists in Temporal Dead Zone  
 
