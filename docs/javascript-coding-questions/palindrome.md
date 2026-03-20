@@ -110,3 +110,69 @@ function isPalindromeWithSpaceAndComa(str)
 }
 ```
 
+# 5️⃣ Using Array Every Method
+
+## More functional JavaScript style.
+
+```js
+function isPalindrome(str) {
+
+    return str.split('').every((char, index) => {
+        return char === str[str.length - 1 - index];
+    });
+
+}
+```
+
+# 🔥 Advanced Interview Palindrome Questions
+
+## These are frequently asked in big companies.
+
+
+
+# 1️⃣ Valid Palindrome After Removing One Character
+
+### example 
+
+
+```js
+abca
+
+```
+### Remove ```c```
+
+```js
+aba
+```
+
+```js
+function validPalindrome(s) {
+
+    function isPal(l, r) {
+
+        while (l < r) {
+            if (s[l] !== s[r]) return false;
+            l++;
+            r--;
+        }
+
+        return true;
+    }
+
+    let left = 0;
+    let right = s.length - 1;
+
+    while (left < right) {
+
+        if (s[left] !== s[right]) {
+            return isPal(left + 1, right) || isPal(left, right - 1);
+        }
+
+        left++;
+        right--;
+    }
+
+    return true;
+}
+
+```
