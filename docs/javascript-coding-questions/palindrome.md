@@ -176,3 +176,65 @@ function validPalindrome(s) {
 }
 
 ```
+
+# 2️⃣ Longest Palindromic Substring
+
+### Example:
+
+```js
+babad
+```
+
+### output
+
+```js
+bab
+```
+
+### OR
+
+```js
+aba
+```
+
+### This is a very famous interview problem.
+
+
+# 3️⃣ Check Palindrome Number
+
+### Example 
+
+```js
+121
+```
+
+### Palindrome number.
+
+```js
+
+function isPalindromeNumber(num) {
+
+    const str = num.toString();
+    const reversed = str.split('').reverse().join('');
+
+    return str === reversed;
+}
+```
+
+
+# 5️⃣ Palindrome Permutation
+
+### Example:
+
+```js
+carrace
+```
+
+## Can be rearranged to:
+
+```js
+racecar
+```
+
+
+
