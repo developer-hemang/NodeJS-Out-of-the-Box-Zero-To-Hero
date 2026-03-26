@@ -8,3 +8,6 @@ I'll explain:
 4️⃣ How Node.js internally handles it  
 5️⃣ Real interview explanation  
 
+
+# 1️⃣ Wrong Way (Using fs.readFile)
+
