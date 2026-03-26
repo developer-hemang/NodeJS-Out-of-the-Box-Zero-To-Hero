@@ -74,6 +74,6 @@ hello printed
 ↓
 Promise resolved
 ↓
-world printed
+world printed   
 
 ```
