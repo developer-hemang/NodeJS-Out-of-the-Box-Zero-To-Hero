@@ -1,5 +1,10 @@
 # 1️⃣ What is Rate Limiting?
 
+Rate limiting is a technique used to control how many requests a client (user/IP/API key) can send to a server within a specific time period.
+
+
+Rate limiting is a mechanism used to control the number of requests a client can make to an API within a given time window. It helps protect systems from abuse, DDoS attacks, and excessive load. Common algorithms include fixed window, sliding window, token bucket, and leaky bucket. In Node.js it is typically implemented using middleware like express-rate-limit or distributed systems like Redis-based rate limiters.
+
 Example:
 
 ```js
