@@ -380,13 +380,247 @@ Server creates new Access Token
 ```
 
 
-# 8. JWT Implementation in Node.js
 
-Install libraries:
+# Production Ready JWT Example (NodeJS Express)
+
+let's build a real Authentication System.
+
+# 1️⃣ Project Structure:
+
+```js
+
+project
+│
+├── controllers
+│   └── authController.js
+│
+├── middleware
+│   └── authMiddleware.js
+│
+├── routes
+│   └── authRoutes.js
+│
+├── utils
+│   └── generateToken.js
+│
+├── server.js
+└── .env
+
+```
+
+# 2️⃣ Install Required Packages
 
 ```js
 npm install express jsonwebtoken bcrypt dotenv
 ```
 
-## Token Generator
+# 3️⃣ .env file
+
+```js
+
+PORT=3000
+JWT_SECRET=somesecrethere
+JWT_EXPIRE=15min
+
+```
+# 4️⃣ Token Generator Utility
+
+### utils/generateToken.js
+
+
+```js
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+export const generateToken = (user) => {
+
+   return jwt.sign(
+      {user.email,user.id}
+      process.env.JWT_SECRET,
+      {expiresIn:process.env.JWT_EXPIRE}
+      
+      );
+
+}
+
+```
+
+
+
+
+
+# 5️⃣ Auth Controller
+
+### controllers/authController.js
+
+```js
+import bcrypt from "bcrypt";
+import { generateToken } from "../utils/generateToken.js";
+
+const users = [];
+
+export const register = async (req, res) => {
+  const { email, password } = req.body;
+
+  const hashedPassword = await bcrypt.hash(password, 10);
+
+  const user = {
+    id: Date.now(),
+    email,
+    password: hashedPassword
+  };
+
+  users.push(user);
+
+  res.json({
+    message: "User registered"
+  });
+};
+
+export const login = async (req, res) => {
+
+  const { email, password } = req.body;
+
+  const user = users.find(u => u.email === email);
+
+  if (!user) {
+    return res.status(401).json({ message: "Invalid email" });
+  }
+
+  const isMatch = await bcrypt.compare(password, user.password);
+
+  if (!isMatch) {
+    return res.status(401).json({ message: "Invalid password" });
+  }
+
+  const token = generateToken(user.id);
+
+  res.json({
+    token
+  });
+};
+
+
+```
+
+# 6️⃣ JWT Middleware (Authentication)
+### middleware/authMiddleware.js
+
+```js
+import jwt from "jsonwebtoken";
+
+export const protect = (req, res, next) => {
+
+  const authHeader = req.headers.authorization;
+
+  if (!authHeader) {
+    return res.status(401).json({ message: "No token provided" });
+  }
+
+  const token = authHeader.split(" ")[1];
+
+  try {
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    req.user = decoded;
+
+    next();
+
+  } catch (error) {
+
+    res.status(401).json({
+      message: "Invalid token"
+    });
+
+  }
+};
+
+```
+# 7️⃣ Protected Route
+
+### routes/authRoutes.js
+
+```js
+
+import express from "express";
+import { login, register } from "../controllers/authController.js";
+import { protect } from "../middleware/authMiddleware.js";
+
+const router = express.Router();
+
+router.post("/register", register);
+router.post("/login", login);
+
+router.get("/profile", protect, (req, res) => {
+
+  res.json({
+    message: "Protected route",
+    user: req.user
+  });
+
+});
+
+export default router;
+
+```
+
+
+# 8️⃣ server.js
+
+```js
+
+import express from "express";
+import dotenv from "dotenv";
+import authRoutes from "./routes/authRoutes.js";
+
+dotenv.config();
+
+const app = express();
+
+app.use(express.json());
+
+app.use("/api", authRoutes);
+
+app.listen(4000, () => {
+  console.log("Server running on port 4000");
+});
+
+```
+
+
+# 9️⃣ Request Flow
+
+### Login
+
+```js
+POST /api/login
+```
+
+### Response:
+
+```js 
+{
+ "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
+```
+
+### Access Protected Route
+
+```js
+GET /api/profile
+```
+
+### Header:
+
+```js
+Authorization: Bearer TOKEN
+```
+
+
+# 🔟
+
+# 1️⃣1️⃣
             
