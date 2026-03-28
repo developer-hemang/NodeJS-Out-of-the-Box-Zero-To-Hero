@@ -619,8 +619,4 @@ GET /api/profile
 Authorization: Bearer TOKEN
 ```
 
-
-# 🔟
-
-# 1️⃣1️⃣
             
